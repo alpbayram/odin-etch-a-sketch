@@ -6,11 +6,15 @@
 	line-height: 150%;
 	/* border: 1.5px black solid; */
 }
+body{
+	overflow: hidden;	
+	touch-action: none;
+}
 .container {
 	display: flex;
 	background-color: #1f2937;
-	width: 100vw;
-	height: 100vh;
+	width: 100dvw;
+	height: 100dvh;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
