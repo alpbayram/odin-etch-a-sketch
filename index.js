@@ -153,6 +153,7 @@ function getGridSize() {
 		console.log(selectSquares)
 		function squareFunction1(square) {
 			square.addEventListener("mouseenter", paintOnHover)
+			square.addEventListener("touchstart", paintOnHover);
 		}
 
 		selectSquares.forEach(squareFunction1)
