@@ -153,12 +153,21 @@ function getGridSize() {
 		console.log(selectSquares)
 		function squareFunction1(square) {
 			square.addEventListener("mouseenter", paintOnHover)
-			square.addEventListener("touchmove", (event) => {
-				event.preventDefault(); // Sayfanın kaymasını engeller
-				paintOnHover(event); // Mobilde kaydırarak boyama sağlar
-			});
+			
 		}
 
 		selectSquares.forEach(squareFunction1)
 	}
 }
+document.addEventListener("touchmove", (event) => {
+    event.preventDefault(); // Sayfanın kaymasını engeller
+    const touchedElement = document.elementFromPoint(
+        event.touches[0].clientX,
+        event.touches[0].clientY
+    );
+    
+    // Eğer dokunulan öğe bir kutuysa, boyama fonksiyonunu çağır
+    if (touchedElement && touchedElement.classList.contains("square")) {
+        paintOnHover({ target: touchedElement });
+    }
+});
