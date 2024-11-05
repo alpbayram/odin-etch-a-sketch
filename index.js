@@ -153,7 +153,10 @@ function getGridSize() {
 		console.log(selectSquares)
 		function squareFunction1(square) {
 			square.addEventListener("mouseenter", paintOnHover)
-			square.addEventListener("touchstart", paintOnHover);
+			square.addEventListener("touchmove", (event) => {
+				event.preventDefault(); // Sayfanın kaymasını engeller
+				paintOnHover(event); // Mobilde kaydırarak boyama sağlar
+			});
 		}
 
 		selectSquares.forEach(squareFunction1)
